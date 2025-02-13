@@ -7,7 +7,7 @@ This repository contains a **Part-of-Speech (POS) Tagger** using **BERT-based mo
 ## 🚀 Features
 
 ✅ **Pretrained Indic-BERT Model** – Uses `ai4bharat/indic-bert` for accurate token classification.  
-✅ **POS Training Data** – Maps POS tags to numerical labels using `new_pos_train_data.pickle`.  
+✅ **POS Training Data** – POS tags training data available in `new_pos_train_data.pickle`.  
 ✅ **POS Encoding Dictionary** – Maps POS tags to numerical labels using `new_pos_encoding.pickle`.  
 ✅ **Train & Fine-Tune** – Train the model using **Hugging Face's Trainer API**.  
 ✅ **Prediction & Inference** – Convert input text into **POS-tagged** sentences.  
