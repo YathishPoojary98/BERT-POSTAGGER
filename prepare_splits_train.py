@@ -7,16 +7,16 @@ import wandb
 
 wandb.login(key="your_key")
 
-with open("df_data.pickle", 'rb') as file:
+with open("new_pos_train_data.pickle", 'rb') as file:
     df = pickle.load(file)
 
-with open("pos_encoding.pickle", 'rb') as file:
+with open("new_pos_encoding.pickle", 'rb') as file:
     encoding_dict = pickle.load(file)
 
 num_labels = len(encoding_dict)
 
-text_column_name = 'tokens'
-label_column_name = 'pos_tags'
+text_column_name = 'words'
+label_column_name = 'pos'
 
 config = AutoConfig.from_pretrained('ai4bharat/indic-bert', num_labels=num_labels, finetuning_task='ner')
 tokenizer = AutoTokenizer.from_pretrained("ai4bharat/indic-bert")
@@ -66,7 +66,7 @@ def tokenize_and_align_labels(examples):
 dataset_dict = DatasetDict()
 
 # Select the columns of interest
-selected_columns = ["tokens", "pos_tags"]
+selected_columns = ["words", "pos"]
 
 # Create a dataset for the training split
 train_dataset = Dataset.from_pandas(df[df['split'] == 'train'][selected_columns])
