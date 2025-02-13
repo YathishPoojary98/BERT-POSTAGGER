@@ -42,8 +42,8 @@ To start training:
 python prepare_splits_train.py
 ```
 This script will:
-- Load the dataset from pickle file
-- Encode POS tags using `pos_encoding.pickle`
+- Load the dataset from pickle file using `new_pos_train_data.pickle`
+- Encode POS tags using `new_pos_encoding.pickle`
 - Tokenize and align labels
 - Train the model using Hugging Face's Trainer API
 - Save the fine-tuned model to `output_dir`
@@ -73,12 +73,12 @@ This script will:
 
 ```
 BERT-POSTAGGER/
-│── prepare_splits_train.py      # Training script
-│── run_pos.py                   # POS tagging script
-│── BERT POS.ipynb               # Jupyter Notebook for preprocessing
-│── new_pos_train_data.pickle    # POS tag training data
-│── new_pos_encoding.pickle      # POS tag encoding dictionary
-│── output_dir/                  # Saved fine-tuned model
+│── prepare_splits_train.py         # Training script
+│── run_pos.py                      # POS tagging script
+│── BERT POS.ipynb                  # Jupyter Notebook for preprocessing
+│── new_pos_train_data.pickle       # POS tag training data
+│── new_pos_encoding.pickle         # POS tag encoding dictionary
+│── output_dir/checkpoint_name      # Saved model
 ```
 
 ---
