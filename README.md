@@ -73,11 +73,12 @@ This script will:
 
 ```
 BERT-POSTAGGER/
-│── prepare_splits_train.py  # Training script
-│── run_pos.py               # POS tagging script
-│── BERT POS.ipynb           # Jupyter Notebook for preprocessing
-│── pos_encoding.pickle      # POS tag encoding dictionary
-│── output_dir/              # Saved fine-tuned model
+│── prepare_splits_train.py      # Training script
+│── run_pos.py                   # POS tagging script
+│── BERT POS.ipynb               # Jupyter Notebook for preprocessing
+│── new_pos_train_data.pickle    # POS tag training data
+│── new_pos_encoding.pickle      # POS tag encoding dictionary
+│── output_dir/                  # Saved fine-tuned model
 ```
 
 ---
@@ -85,16 +86,62 @@ BERT-POSTAGGER/
 ## 📊 Example POS-Tagged Output
 **Example input (`input.txt`)**:
 ```
-This is an example sentence.
+ಅದರಂತೆ
+ಶಾಲೆಗಳಲ್ಲಿ
+ಹೈಟೆಕ್
+ಶೌಚಾಲಯಗಳ
+ನಿರ್ಮಾಣದಿಂದ
+'
+ಸ್ವಚ್ಛತೆಯೇ
+ಸೇವೆ
+'
+ಘೋಷಣೆಯನ್ನು
+ಸಾಬೀತುಪಡಿಸಿದೆ
+.
+
+ಶಾಲೆಗಳ
+ಆವರಣದಲ್ಲಿ
+ಆಟದ
+ಮೈದಾನಗಳ
+ಉನ್ನತೀಕರಣದ
+ಮೂಲಕ
+ಕ್ರೀಡಾ
+ಚಟುವಟಿಕೆಗಳಿಗೆ
+ಉತ್ತೇಜನ
+ನೀಡಲು
+ಆಗಿದೆ
+.
 ```
 **Generated output (`output.txt`)**:
 ```
 <Sentence id='1'>
-1   This    DET
-2   is      VERB
-3   an      DET
-4   example NOUN
-5   sentence NOUN
+1	ಅದರಂತೆ	CC__CCS
+2	ಶಾಲೆಗಳಲ್ಲಿ	N__NN
+3	ಹೈಟೆಕ್	JJ
+4	ಶೌಚಾಲಯಗಳ	N__NN
+5	ನಿರ್ಮಾಣದಿಂದ	N__NN
+6	'	RD__PUNC
+7	ಸ್ವಚ್ಛತೆಯೇ	N__NN
+8	ಸೇವೆ	N__NN
+9	'	RD__PUNC
+10	ಘೋಷಣೆಯನ್ನು	N__NNV
+11	ಸಾಬೀತುಪಡಿಸಿದೆ	V__VM__VF
+12	.	RD__PUNC
+</Sentence>
+
+<Sentence id='2'>
+1	ಶಾಲೆಗಳ	N__NN
+2	ಆವರಣದಲ್ಲಿ	N__NN
+3	ಆಟದ	N__NNV
+4	ಮೈದಾನಗಳ	N__NN
+5	ಉನ್ನತೀಕರಣದ	N__NN
+6	ಮೂಲಕ	RP__RPD
+7	ಕ್ರೀಡಾ	N__NN
+8	ಚಟುವಟಿಕೆಗಳಿಗೆ	N__NN
+9	ಉತ್ತೇಜನ	N__NN
+10	ನೀಡಲು	V__VM__VF
+11	ಆಗಿದೆ	V__VAUX
+12	.	RD__PUNC
 </Sentence>
 ```
 
