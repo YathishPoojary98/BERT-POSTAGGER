@@ -6,7 +6,7 @@ import torch
 import pickle
 import argparse
 
-with open("pos_encoding.pickle","rb") as f:
+with open("new_pos_encoding.pickle","rb") as f:
 	encoding_dict = pickle.load(f)
 
 # Parse command-line arguments
