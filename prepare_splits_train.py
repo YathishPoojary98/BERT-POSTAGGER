@@ -3,6 +3,9 @@ import numpy as np
 import pandas as pd
 import pickle
 from datasets import DatasetDict, Dataset, ClassLabel, load_dataset, load_metric, DownloadMode
+import wandb
+
+wandb.login(key="your_key")
 
 with open("df_data.pickle", 'rb') as file:
     df = pickle.load(file)
@@ -134,6 +137,7 @@ def compute_metrics(p):
 # args=TrainingArguments(output_dir='output_dir',max_steps=5)
 args=TrainingArguments(
     output_dir='output_dir',
+    fp16=True,
     per_device_train_batch_size=8,
     per_device_eval_batch_size=8,)
 
